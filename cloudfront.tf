@@ -126,6 +126,7 @@ resource "aws_cloudfront_distribution" "default" {
       target_origin_id = cache_behavior.value.target_origin_id
       compress         = lookup(cache_behavior.value, "compress", null)
       cache_policy_id  = lookup(cache_behavior.value, "cache_policy_id", null)
+      origin_request_policy_id = lookup(cache_behavior.value, "origin_request_policy_id", null)
 
       dynamic "forwarded_values" {
         iterator = fwd
